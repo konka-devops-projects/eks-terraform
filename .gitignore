@@ -1,2 +1,9 @@
-**.terraform/
-**/terraform-lock.hcl
+# Ignore all .terraform folders (at any level)
+**/.terraform/
+
+# Ignore all .terraform.lock.hcl files (at any level)
+**/.terraform.lock.hcl
+
+# Ignore all tfplan.out and tfplan.txt files (at any level)
+**/tfplan.out
+**/tfplan.txt

@@ -47,6 +47,6 @@ variable "db_subnet_cidr" {
 
 variable "enable_nat" {
   description = "Enable NAT Gateway for private subnets"
-  type    = bool
-  default = true
+  type        = bool
+  default     = true
 }

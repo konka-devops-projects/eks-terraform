@@ -19,17 +19,14 @@ case "$CHOICE" in
     ;;
 esac
 
-cd infra || exit 1
 
-instead of asking ENV choose number 1.dev 2.prod
-read ENV
 
 if [ -z "$ENV" ]; then
   echo "❌ Environment not provided. Exiting."
   exit 1
 fi
 
-cd infra || exit 1
+cd live || exit 1
 
 # Terraform Init
 echo "🔧 Initializing Terraform with backend config for $ENV..."

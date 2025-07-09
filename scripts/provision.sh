@@ -19,7 +19,7 @@ case "$CHOICE" in
     ;;
 esac
 
-cd infra || exit 1
+cd live || exit 1
 
 # Terraform Init
 echo "🔧 Initializing Terraform with backend config for $ENV..."
