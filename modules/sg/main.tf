@@ -4,7 +4,7 @@ locals {
 resource "aws_security_group" "asg" {
   name        = local.name
   description = var.sg_description
-  vpc_id      = aws_vpc.main.id
+  vpc_id      = var.vpc_id
 
   dynamic "ingress" {
     for_each = var.ingress_rules

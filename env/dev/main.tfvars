@@ -18,3 +18,14 @@ vpc = {
   db_subnet_cidr      = ["172.17.64.0/20", "172.17.80.0/20"]
   enable_nat          = false
 }
+
+sg = {
+  control_plane_sg_name        = "control-plane-sg"
+  control_plane_sg_description = "Security group for the control plane"
+  node_group_sg_name           = "node-group-sg"
+  node_group_sg_description    = "Security group for the node group"
+  bastion_sg_name              = "bastion-sg"
+  bastion_sg_description       = "Security group for the bastion host"
+  alb_sg_name                  = "alb-sg"
+  alb_sg_description           = "Security group for the Application Load Balancer"
+}
