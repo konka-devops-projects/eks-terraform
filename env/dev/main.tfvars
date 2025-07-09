@@ -29,3 +29,11 @@ sg = {
   alb_sg_name                  = "alb-sg"
   alb_sg_description           = "Security group for the Application Load Balancer"
 }
+
+eks = {
+  bootstrap_cluster_creator_admin_permissions = true
+  eks_version                                 = "1.32"
+  endpoint_private_access                     = true
+  endpoint_public_access                      = true
+  public_access_cidrs                         = ["0.0.0.0/0"]
+}

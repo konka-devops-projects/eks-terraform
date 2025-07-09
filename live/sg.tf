@@ -79,7 +79,7 @@ resource "aws_security_group_rule" "alb_nodegroup" {
   from_port                = 30000
   to_port                  = 32767
   protocol                 = "tcp"
-  source_security_group_id = module.alb_sg.sg_id
+  source_security_group_id = module.alb.sg_id
   security_group_id        = module.node_group.sg_id
 }
 resource "aws_security_group_rule" "bastion_nodegroup" {
@@ -88,36 +88,36 @@ resource "aws_security_group_rule" "bastion_nodegroup" {
   from_port                = 22
   to_port                  = 22
   protocol                 = "tcp"
-  source_security_group_id = module.alb_sg.sg_id
+  source_security_group_id = module.bastion.sg_id
   security_group_id        = module.node_group.sg_id
 }
 
 resource "aws_security_group_rule" "http_alb" {
-  description              = "Allow HTTP traffic from Internet to ALB"
-  type                     = "ingress"
-  from_port                = 80
-  to_port                  = 80
-  protocol                 = "tcp"
-  cidr_blocks = ["0.0.0.0/0"]
-  security_group_id        = module.alb.sg_id
+  description       = "Allow HTTP traffic from Internet to ALB"
+  type              = "ingress"
+  from_port         = 80
+  to_port           = 80
+  protocol          = "tcp"
+  cidr_blocks       = ["0.0.0.0/0"]
+  security_group_id = module.alb.sg_id
 }
 
 resource "aws_security_group_rule" "https_alb" {
-  description              = "Allow HTTPs traffic from Internet to ALB"
-  type                     = "ingress"
-  from_port                = 443
-  to_port                  = 443
-  protocol                 = "tcp"
-  cidr_blocks = ["0.0.0.0/0"]
-  security_group_id        = module.alb.sg_id
+  description       = "Allow HTTPs traffic from Internet to ALB"
+  type              = "ingress"
+  from_port         = 443
+  to_port           = 443
+  protocol          = "tcp"
+  cidr_blocks       = ["0.0.0.0/0"]
+  security_group_id = module.alb.sg_id
 }
 
 resource "aws_security_group_rule" "ssh_bastion" {
-  description              = "Allow SSH traffic from Internet to Bastion host"
-  type                     = "ingress"
-  from_port                = 22
-  to_port                  = 22
-  protocol                 = "tcp"
-  cidr_blocks = ["0.0.0.0/0"]
-  security_group_id        = module.bastion.sg_id
+  description       = "Allow SSH traffic from Internet to Bastion host"
+  type              = "ingress"
+  from_port         = 22
+  to_port           = 22
+  protocol          = "tcp"
+  cidr_blocks       = ["0.0.0.0/0"]
+  security_group_id = module.bastion.sg_id
 }
